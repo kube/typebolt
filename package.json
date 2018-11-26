@@ -1,0 +1,21 @@
+{
+  "name": "typebolt",
+  "version": "0.0.1",
+  "description": "TypeScript static helpers",
+  "main": "lib/index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "tsc && tsc --strict false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/kube/typebolt"
+  },
+  "author": {
+    "name": "Chris Feijoo",
+    "url": "https://github.com/kube"
+  },
+  "license": "MIT"
+}
