@@ -1,6 +1,6 @@
 {
   "name": "typebolt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "TypeScript static helpers",
   "main": "lib/index.ts",
   "directories": {
