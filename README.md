@@ -1,4 +1,6 @@
-<img src="./logo.svg" width=250/>
+<h1>
+  <img src="./logo.svg" width=250 alt="Typebolt" />
+</h1>
 
 **TypeScript static helpers for types accuracy and testing**
 
