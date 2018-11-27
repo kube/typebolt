@@ -11,8 +11,7 @@
 version: 2
 
 defaults: &defaults
-  working_directory:
-    &working_directory ~/typebolt
+  working_directory: ~/typebolt
   docker:
     - image: circleci/node:9.7.1
 
@@ -33,7 +32,7 @@ jobs:
   deploy:
     <<: *defaults
     steps:
-      - attach_workspace: { at: *working_directory }
+      - attach_workspace: { at: ~/typebolt }
       - run:
           name: NPM Authentication
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/typebolt/.npmrc
