@@ -9,7 +9,7 @@
       ## ## ##*/
 
 import { Assert, IsExactType } from '../lib/Testing'
-import { And, Or, Xor, Not, Nand, Nor, Xnor } from '../lib/Logic'
+import { And, Or, Not, Xor, Nor, Nand, Xnor } from '../lib/Logic'
 
 //
 // Not
@@ -46,20 +46,20 @@ Assert.true<Xor<false, true>>()
 Assert.false<Xor<false, false>>()
 
 //
-// Nand
-//
-Assert.false<Nand<true, true>>()
-Assert.true<Nand<true, false>>()
-Assert.true<Nand<false, true>>()
-Assert.true<Nand<false, false>>()
-
-//
 // Nor
 //
 Assert.false<Nor<true, true>>()
 Assert.false<Nor<true, false>>()
 Assert.false<Nor<false, true>>()
 Assert.true<Nor<false, false>>()
+
+//
+// Nand
+//
+Assert.false<Nand<true, true>>()
+Assert.true<Nand<true, false>>()
+Assert.true<Nand<false, true>>()
+Assert.true<Nand<false, false>>()
 
 //
 // Xnor

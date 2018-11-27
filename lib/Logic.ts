@@ -39,16 +39,16 @@ export type Xor<A extends boolean, B extends boolean> =
   : (B extends true ? true : false)
 
 /**
- * Logical NOT AND
- */
-export type Nand<A extends boolean, B extends boolean> =
-  Not<And<A, B>>
-
-/**
  * Logical NOT OR
  */
 export type Nor<A extends boolean, B extends boolean> =
   Not<Or<A, B>>
+
+/**
+ * Logical NOT AND
+ */
+export type Nand<A extends boolean, B extends boolean> =
+  Not<And<A, B>>
 
 /**
  * Logical Exclusive NOT OR
