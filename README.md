@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/kube/typebolt.svg?style=svg)](https://circleci.com/gh/kube/typebolt)
+
 <h1>
   <img src="./logo.svg" width=250 alt="Typebolt" />
 </h1>
