@@ -1,5 +1,7 @@
+[![CircleCI](https://circleci.com/gh/kube/typebolt.svg?style=svg)](https://circleci.com/gh/kube/typebolt)
+
 <h1>
-  <img src="./logo.svg" width=250 alt="Typebolt" />
+  <img src="https://cdn.jsdelivr.net/gh/kube/typebolt/logo.svg" width=250 alt="Typebolt" />
 </h1>
 
 **TypeScript static helpers for types accuracy and testing**
