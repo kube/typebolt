@@ -1,2 +1,5 @@
+.circleci
+.editorconfig
 tests
+logo.svg
 yarn.lock
