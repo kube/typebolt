@@ -11,7 +11,7 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/typebolt
+  working_directory: &working_directory ~/typebolt
   docker:
     - image: circleci/node:9.7.1
 
@@ -28,14 +28,17 @@ jobs:
           key: dependencies-cache-{{ checksum "package.json" }}
           paths: [node_modules]
       - run: yarn test
+      - persist_to_workspace:
+          root: *working_directory
+          paths: [.]
 
   deploy:
     <<: *defaults
     steps:
-      - attach_workspace: { at: ~/typebolt }
+      - attach_workspace: { at: *working_directory }
       - run:
           name: NPM Authentication
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/typebolt/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
           command: npm publish
