@@ -16,6 +16,22 @@ defaults: &defaults
     - image: circleci/node:9.7.1
 
 jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-cache-{{ checksum "package.json" }}
+      - run: yarn
+      - save_cache:
+          key: dependencies-cache-{{ checksum "package.json" }}
+          paths: [node_modules]
+      - run: yarn test
+      - persist_to_workspace:
+          root: *working_directory
+          paths: [.]
+
   build:
     <<: *defaults
     steps:
@@ -47,7 +63,8 @@ workflows:
   version: 2
   test-deploy:
     jobs:
+      - test
       - build
       - deploy:
-          requires: [build]
+          requires: [test, build]
           filters: { branches: { only: master } }
