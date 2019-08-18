@@ -8,7 +8,7 @@
      ## ## ## :##
       ## ## ##*/
 
-import { Assert, IsExactType } from '../lib/Testing'
+import { Assert, IsExactType } from '../Testing'
 import {
   Head,
   Tail,
@@ -19,7 +19,7 @@ import {
   TakeLast,
   Drop,
   DropLast
-} from '../lib/Tuple'
+} from '../Tuple'
 
 //
 // Head

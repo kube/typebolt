@@ -8,14 +8,14 @@
      ## ## ## :##
       ## ## ##*/
 
-import { Assert } from '../lib/Testing'
+import { Assert } from '../Testing'
 import {
   IsType,
   IsExactType,
   IsMutualSubType,
   IsUnion,
   IsAny
-} from '../lib/Testing'
+} from '../Testing'
 
 //
 // Assert
