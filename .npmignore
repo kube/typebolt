@@ -3,3 +3,5 @@
 tests
 logo.svg
 yarn.lock
+lib
+*.spec.*

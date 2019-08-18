@@ -4,6 +4,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noEmit": true,
+    "rootDir": "lib",
+    "outDir": "dist",
+    "declaration": true
   }
 }

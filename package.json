@@ -2,12 +2,14 @@
   "name": "typebolt",
   "version": "0.0.3",
   "description": "TypeScript static helpers",
-  "main": "lib/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
-    "lib": "lib"
+    "lib": "dist"
   },
   "scripts": {
-    "test": "tsc"
+    "build": "tsc",
+    "test": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
