@@ -32,6 +32,22 @@ jobs:
           root: *working_directory
           paths: [.]
 
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-cache-{{ checksum "package.json" }}
+      - run: yarn
+      - save_cache:
+          key: dependencies-cache-{{ checksum "package.json" }}
+          paths: [node_modules]
+      - run: yarn build
+      - persist_to_workspace:
+          root: *working_directory
+          paths: [.]
+
   deploy:
     <<: *defaults
     steps:
@@ -48,6 +64,7 @@ workflows:
   test-deploy:
     jobs:
       - test
+      - build
       - deploy:
-          requires: [test]
+          requires: [test, build]
           filters: { branches: { only: master } }
