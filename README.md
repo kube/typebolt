@@ -62,13 +62,13 @@ Assert<true>()
 Assert<false>() // ERROR
 Assert<boolean>() // ERROR
 
-Assert.true<true>()
-Assert.true<false>() // ERROR
-Assert.true<boolean>() // ERROR
+Assert.True<true>()
+Assert.True<false>() // ERROR
+Assert.True<boolean>() // ERROR
 
-Assert.false<false>()
-Assert.false<true>() // ERROR
-Assert.false<boolean>() // ERROR
+Assert.False<false>()
+Assert.False<true>() // ERROR
+Assert.False<boolean>() // ERROR
 ```
 
 ### IsType<T, S>
