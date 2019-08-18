@@ -51,8 +51,8 @@ export function Assert<_Assertion extends true>() { }
 /**
  * Assert that a Type is true.
  */
-Assert.true = function <_Assertion extends true>() { }
+Assert.True = function <_Assertion extends true>() { }
 /**
  * Assert that a Type is false.
  */
-Assert.false = function <_Assertion extends false>() { }
+Assert.False = function <_Assertion extends false>() { }
