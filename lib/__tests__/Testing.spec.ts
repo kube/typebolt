@@ -8,13 +8,16 @@
      ## ## ## :##
       ## ## ##*/
 
-import { Assert } from "../Testing";
 import {
-  IsType,
+  Assert,
+  IsAny,
+  IsAnyOrUnknown,
   IsExactType,
   IsMutualSubType,
+  IsNever,
+  IsType,
   IsUnion,
-  IsAny,
+  IsUnknown,
 } from "../Testing";
 
 //
@@ -59,12 +62,22 @@ import {
 // IsUnion
 //
 {
+  enum X {
+    a,
+    b,
+  }
+  Assert.True<IsUnion<X>>();
+
   Assert.True<IsUnion<"Hello" | "World">>();
   Assert.True<IsUnion<1 | 2>>();
   Assert.True<IsUnion<boolean>>(); // Boolean is union of true and false
   Assert.True<IsUnion<true | false>>();
   Assert.True<IsUnion<object | undefined>>();
 
+  enum Y {
+    a,
+  }
+  Assert.False<IsUnion<Y>>();
   Assert.False<IsUnion<any>>();
   Assert.False<IsUnion<any | 42>>(); // Any cannot be unioned
   Assert.False<IsUnion<string>>();
@@ -80,11 +93,54 @@ import {
 }
 
 //
+// IsNever
+//
+{
+  Assert.True<IsNever<never>>();
+
+  Assert.False<IsNever<never | any>>();
+  Assert.False<IsNever<never | number>>();
+  Assert.False<IsNever<never | {}>>();
+  Assert.False<IsNever<never | void>>();
+  Assert.False<IsNever<any>>();
+  Assert.False<IsNever<unknown>>();
+  Assert.False<IsNever<{}>>();
+  Assert.False<IsNever<null>>();
+  Assert.False<IsNever<number>>();
+  Assert.False<IsNever<string>>();
+  Assert.False<IsNever<boolean>>();
+  Assert.False<IsNever<number | string>>();
+  Assert.False<IsNever<42>>();
+  Assert.False<IsNever<true>>();
+}
+
+//
+// IsAnyOrUnknown
+//
+{
+  Assert.True<IsAnyOrUnknown<any>>();
+  Assert.True<IsAnyOrUnknown<unknown>>();
+
+  Assert.False<IsAnyOrUnknown<never>>();
+  Assert.False<IsAnyOrUnknown<{}>>();
+  Assert.False<IsAnyOrUnknown<null>>();
+  Assert.False<IsAnyOrUnknown<number>>();
+  Assert.False<IsAnyOrUnknown<string>>();
+  Assert.False<IsAnyOrUnknown<boolean>>();
+  Assert.False<IsAnyOrUnknown<number | string>>();
+  Assert.False<IsAnyOrUnknown<42>>();
+  Assert.False<IsAnyOrUnknown<true>>();
+}
+
+//
 // IsAny
 //
 {
   Assert.True<IsAny<any>>();
 
+  Assert.False<IsAny<never>>();
+  Assert.False<IsAny<unknown>>();
+  Assert.False<IsAny<{}>>();
   Assert.False<IsAny<null>>();
   Assert.False<IsAny<number>>();
   Assert.False<IsAny<string>>();
@@ -92,6 +148,24 @@ import {
   Assert.False<IsAny<number | string>>();
   Assert.False<IsAny<42>>();
   Assert.False<IsAny<true>>();
+}
+
+//
+// IsUnknown
+//
+{
+  Assert.True<IsUnknown<unknown>>();
+
+  Assert.False<IsUnknown<any>>();
+  Assert.False<IsUnknown<never>>();
+  Assert.False<IsUnknown<{}>>();
+  Assert.False<IsUnknown<null>>();
+  Assert.False<IsUnknown<number>>();
+  Assert.False<IsUnknown<string>>();
+  Assert.False<IsUnknown<boolean>>();
+  Assert.False<IsUnknown<number | string>>();
+  Assert.False<IsUnknown<42>>();
+  Assert.False<IsUnknown<true>>();
 }
 
 //
