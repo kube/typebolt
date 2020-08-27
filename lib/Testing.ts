@@ -30,10 +30,33 @@ export type IsUnion<T> = IsMutualSubType<T, T> extends true
   : true;
 
 /**
+ * Check if Type is Never
+ */
+export type IsNever<T> = [T] extends [never] ? true : false;
+
+/**
+ * Check if Type is Any or Unknown
+ */
+export type IsAnyOrUnknown<T> = (
+  any extends T ? true : false
+) extends true
+  ? true
+  : false;
+
+/**
  * Check if Type is Any
  */
-export type IsAny<T> = IsUnion<T> extends false
-  ? boolean | {} extends T
+export type IsAny<T> = IsAnyOrUnknown<T> extends true
+  ? IsNever<keyof T> extends true
+    ? false
+    : true
+  : false;
+
+/**
+ * Check if Type is Unknown
+ */
+export type IsUnknown<T> = IsAnyOrUnknown<T> extends true
+  ? IsNever<keyof T> extends true
     ? true
     : false
   : false;
