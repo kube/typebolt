@@ -85,6 +85,7 @@ jobs:
       - name: Persist dist directory
         uses: actions/upload-artifact@v1
         with:
+          path: dist
           name: dist
 
   publish:
