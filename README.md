@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/kube/typebolt.svg?style=svg)](https://circleci.com/gh/kube/typebolt)
+![https://github.com/kube/typebolt/actions?query=workflow%3ABuild+branch%3Amaster](https://github.com/kube/typebolt/workflows/Build/badge.svg)
 
 <h1 align="left">
   <img src="https://cdn.jsdelivr.net/gh/kube/typebolt/logo.svg" width=250 alt="Typebolt" />
@@ -53,49 +53,52 @@ Not<And<true, false>> // true – Equivalent to Nand
 - `IsExactType<T1, T2>`: **T1** and **T2** are exact same.
 
 ### Assert
+
 Assert a Type is `true` or `false`.
 
 ```ts
-import { Assert } from 'typebolt'
+import { Assert } from "typebolt";
 
-Assert<true>()
-Assert<false>() // ERROR
-Assert<boolean>() // ERROR
+Assert<true>();
+Assert<false>(); // ERROR
+Assert<boolean>(); // ERROR
 
-Assert.True<true>()
-Assert.True<false>() // ERROR
-Assert.True<boolean>() // ERROR
+Assert.True<true>();
+Assert.True<false>(); // ERROR
+Assert.True<boolean>(); // ERROR
 
-Assert.False<false>()
-Assert.False<true>() // ERROR
-Assert.False<boolean>() // ERROR
+Assert.False<false>();
+Assert.False<true>(); // ERROR
+Assert.False<boolean>(); // ERROR
 ```
 
 ### IsType<T, S>
+
 Check S is subtype of T. (a.k.a. `extends`)
 
 ```ts
-Assert<IsType<number, 42>>()
-Assert<IsType<number, number>>()
-Assert<IsType<42, number>>() // ERROR
+Assert<IsType<number, 42>>();
+Assert<IsType<number, number>>();
+Assert<IsType<42, number>>(); // ERROR
 ```
 
 ### IsExactType<T1, T2>
+
 Check T1 and T2 are exact same types.
 
 ```ts
-Assert<IsExactType<42, 42>>()
-Assert<IsExactType<any, 42>>() // ERROR
-Assert<IsExactType<number, 42>>() // ERROR
+Assert<IsExactType<42, 42>>();
+Assert<IsExactType<any, 42>>(); // ERROR
+Assert<IsExactType<number, 42>>(); // ERROR
 
 // With unions
-Assert<IsExactType<string | number, string | number>>()
-Assert<IsExactType<string | number, string>>() // ERROR
-Assert<IsExactType<string, string | number>>() // ERROR
+Assert<IsExactType<string | number, string | number>>();
+Assert<IsExactType<string | number, string>>(); // ERROR
+Assert<IsExactType<string, string | number>>(); // ERROR
 
 // With any
-Assert<IsExactType<any, any>>()
-Assert<IsExactType<any, number>>() // ERROR
+Assert<IsExactType<any, any>>();
+Assert<IsExactType<any, number>>(); // ERROR
 ```
 
 ## Tuple Operations
@@ -128,6 +131,7 @@ DropLast<2, [1, 2, 3, 4]> // [1, 2]
 
 - `boolean` is always considered union of `true | false`.
 - Union of a Type `T` and a SubType `S` will resolve to non-union `T`.
+
   > e.g. `string | "Hello"` resolves to `string`
 
 - Union with `any` will always resolve to `any`.
