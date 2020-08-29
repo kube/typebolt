@@ -1,6 +1,6 @@
 {
   "name": "typebolt",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "TypeScript static helpers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "postbuild": "header format --write --add dist/*.js dist/*.ts",
     "test": "tsc --noEmit"
   },
   "repository": {
@@ -22,7 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "^4.2.5",
-    "kube-header": "^1.1.11",
+    "kube-header": "^1.2.14",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
