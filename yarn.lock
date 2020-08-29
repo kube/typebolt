@@ -385,10 +385,10 @@ json-parse-even-better-errors@^2.3.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.0.tgz#371873c5ffa44304a6ba12419bcfa95f404ae081"
   integrity sha512-o3aP+RsWDJZayj1SbHNQAI8x0v3T3SKiGoZlNYfbUP1S3omJQ6i9CnqADqkSPaOAxwua4/1YWx5CM7oiChJt2Q==
 
-kube-header@^1.1.11:
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/kube-header/-/kube-header-1.1.11.tgz#ed30ed47626d194d9137dd4ad2694c48f5ccf8a8"
-  integrity sha512-XATjnpwbJQfOvo1Fahfabmo680dPLwyItYx9s/5vEOGWCLfo+AaSTg2duXLYimjJJmgZI9Ev2a7PW1NuorCWjA==
+kube-header@^1.2.14:
+  version "1.2.14"
+  resolved "https://registry.yarnpkg.com/kube-header/-/kube-header-1.2.14.tgz#2207e3b536bf099ec611f88a286b2640b34549be"
+  integrity sha512-7eJ/C1QTq4hAu4wusD7Y47hGw5FLsLXn40yaU+WRTgk3b9OlJTORzmr1a3H1wW21lYZqHrErJ91F7iC7AU+5zw==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
