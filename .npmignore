@@ -1,3 +1,4 @@
+.github
 .circleci
 .editorconfig
 tests
@@ -5,3 +6,5 @@ logo.svg
 yarn.lock
 lib
 *.spec.*
+.prettierrc
+tsconfig.json
