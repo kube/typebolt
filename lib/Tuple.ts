@@ -8,7 +8,7 @@
      ## ## ## :##
       ## ## ##*/
 
-import { MinusOne } from "./Count";
+import { Decrement } from "./Count";
 
 /**
  * Get first element of a Tuple
@@ -53,7 +53,7 @@ export type Take<
   O extends any[] = []
 > = {
   0: O;
-  1: Take<MinusOne<N>, Tail<T>, Append<Head<T>, O>>;
+  1: Take<Decrement<N>, Tail<T>, Append<Head<T>, O>>;
 }[N extends 0 ? 0 : T extends [] ? 0 : 1];
 
 /**
@@ -66,7 +66,7 @@ export type TakeLast<
 > = {
   0: S;
   1: T extends [...infer XS, infer L]
-    ? TakeLast<MinusOne<N>, XS, [L, ...S]>
+    ? TakeLast<Decrement<N>, XS, [L, ...S]>
     : T;
 }[N extends 0 ? 0 : T extends [] ? 0 : 1];
 
@@ -75,13 +75,13 @@ export type TakeLast<
  */
 export type Drop<N extends number, T extends any[]> = {
   0: T;
-  1: Drop<MinusOne<N>, Tail<T>>;
+  1: Drop<Decrement<N>, Tail<T>>;
 }[N extends 0 ? 0 : T extends [] ? 0 : 1];
 
 /**
  * Drop N last elements of Tuple
  */
 export type DropLast<N extends number, T extends any[]> = {
-  0: T extends [...infer XS, any] ? DropLast<MinusOne<N>, XS> : [];
+  0: T extends [...infer XS, any] ? DropLast<Decrement<N>, XS> : [];
   1: T;
 }[N extends 0 ? 1 : T extends [] ? 1 : 0];

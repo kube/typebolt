@@ -10,15 +10,15 @@
 
 import { Assert, IsExactType } from "../Testing";
 import {
-  Head,
-  Tail,
   Append,
-  Prepend,
-  Reverse,
-  Take,
-  TakeLast,
   Drop,
   DropLast,
+  Head,
+  Prepend,
+  Reverse,
+  Tail,
+  Take,
+  TakeLast,
 } from "../Tuple";
 
 //
@@ -61,6 +61,16 @@ import {
   Assert<IsExactType<Reverse<[1, 2]>, [2, 1]>>();
   Assert<IsExactType<Reverse<[1, 2, 3]>, [3, 2, 1]>>();
   Assert<IsExactType<Reverse<[1, 2, 3, 4]>, [4, 3, 2, 1]>>();
+  Assert<IsExactType<Reverse<[1, 2, 3, 4, 5]>, [5, 4, 3, 2, 1]>>();
+  Assert<
+    IsExactType<Reverse<[1, 2, 3, 4, 5, 6]>, [6, 5, 4, 3, 2, 1]>
+  >();
+  Assert<
+    IsExactType<Reverse<[1, 2, 3, 4, 5, 6, 7]>, [7, 6, 5, 4, 3, 2, 1]>
+  >();
+  Assert<
+    IsExactType<Reverse<[1, 2, 3, 4, 5, 6, 7]>, [7, 6, 5, 4, 3, 2, 1]>
+  >();
 }
 
 //
