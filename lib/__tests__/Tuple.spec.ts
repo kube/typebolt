@@ -29,6 +29,8 @@ import {
   Assert<IsExactType<1, Head<[1]>>>();
   Assert<IsExactType<1, Head<[1, 2, 3]>>>();
   Assert<IsExactType<"Hello", Head<["Hello", "World"]>>>();
+
+  Assert<IsExactType<string | undefined, Head<string[]>>>();
 }
 
 //
@@ -39,6 +41,8 @@ import {
   Assert<IsExactType<[], Tail<["Hello"]>>>();
   Assert<IsExactType<["World"], Tail<["Hello", "World"]>>>();
   Assert<IsExactType<[2, 3, 4, 5], Tail<[1, 2, 3, 4, 5]>>>();
+
+  Assert<IsExactType<string[], Tail<string[]>>>();
 }
 
 //
