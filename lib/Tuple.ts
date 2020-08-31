@@ -15,14 +15,16 @@ import { Decrement } from "./Count";
  */
 export type Head<XS extends any[]> = XS extends [infer X, ...any[]]
   ? X
-  : never;
+  : XS extends []
+  ? never
+  : XS[number] | undefined;
 
 /**
  * Get all elements after first of a Tuple
  */
 export type Tail<XS extends any[]> = XS extends [any, ...infer T]
   ? T
-  : [];
+  : XS;
 
 /**
  * Preprend element at start of a Tuple
