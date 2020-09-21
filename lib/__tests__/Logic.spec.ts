@@ -8,8 +8,9 @@
      ## ## ## :##
       ## ## ##*/
 
-import { Assert, IsExactType } from "../Testing";
-import { And, Or, Not, Xor, Nor, Nand, Xnor } from "../Logic";
+import { Assert } from "../Assert";
+import { And, Nand, Nor, Not, Or, Xnor, Xor } from "../Logic";
+import { IsExactType } from "../Testing";
 
 //
 // Not

@@ -23,7 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "^4.2.5",
-    "kube-header": "^1.2.14",
+    "kube-header": "^1.2.15",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
@@ -38,5 +38,8 @@
       "prettier --write",
       "header format --write"
     ]
+  },
+  "dependencies": {
+    "monolite": "^0.9.0"
   }
 }
