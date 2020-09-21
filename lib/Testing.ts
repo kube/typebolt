@@ -73,14 +73,11 @@ export type IsExactType<T, S> = IsAny<T> extends true
   : IsMutualSubType<[T], [S]>;
 
 /**
- * Assert that a Type is true.
+ * Check if a Type is a Tuple.
+ * Will return false in case of an array.
  */
-export function Assert<_Assertion extends true>() {}
-/**
- * Assert that a Type is true.
- */
-Assert.True = function <_Assertion extends true>() {};
-/**
- * Assert that a Type is false.
- */
-Assert.False = function <_Assertion extends false>() {};
+export type IsTuple<T> = T extends Array<infer X>
+  ? Array<X> extends T
+    ? false
+    : true
+  : false;

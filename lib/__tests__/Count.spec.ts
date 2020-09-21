@@ -8,8 +8,9 @@
      ## ## ## :##
       ## ## ##*/
 
+import { Assert } from "../Assert";
 import { Add, Decrement, Increment, Range, Sub } from "../Count";
-import { Assert, IsExactType } from "../Testing";
+import { IsExactType } from "../Testing";
 
 //
 // Increment

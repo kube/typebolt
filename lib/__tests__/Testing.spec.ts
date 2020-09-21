@@ -8,26 +8,18 @@
      ## ## ## :##
       ## ## ##*/
 
+import { Assert } from "../Assert";
 import {
-  Assert,
   IsAny,
   IsAnyOrUnknown,
   IsExactType,
   IsMutualSubType,
   IsNever,
+  IsTuple,
   IsType,
   IsUnion,
   IsUnknown,
 } from "../Testing";
-
-//
-// Assert
-//
-{
-  Assert<true>();
-  Assert.True<true>();
-  Assert.False<false>();
-}
 
 //
 // IsType
@@ -211,4 +203,16 @@ import {
   Assert.False<
     IsExactType<{ name: string; age: number }, { name: string }>
   >();
+}
+
+//
+// IsTuple
+//
+{
+  Assert.True<IsTuple<[]>>();
+  Assert.True<IsTuple<[1, 2, 3]>>();
+  Assert.True<IsTuple<[1, 2, "three"]>>();
+
+  Assert.False<IsTuple<Array<1 | 2 | 3>>>();
+  Assert.False<IsTuple<Array<number>>>();
 }
