@@ -61,10 +61,10 @@ export type AreCompatible<A, B> = AreDisjoint<A, B> extends true
  * Subtype of Array.
  */
 export type Tuple<
-  T = any,
+  T = unknown,
   Length extends number = number
 > = number extends Length
-  ? [] | (Array<T> & { 0: T })
+  ? Array<T> & ([] | { 0: T })
   : MapTuple<Range<1, Length>, T>;
 
 type MapTuple<XS, T> = {

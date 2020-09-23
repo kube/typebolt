@@ -10,7 +10,7 @@
 
 import { Assert } from "../Assert";
 import { Range } from "../Count";
-import { IsType } from "../Testing";
+import { IsExactType, IsType } from "../Testing";
 import { AreDisjoint, CheckNeverProps, Tuple } from "../Types";
 
 //
@@ -400,6 +400,8 @@ import { AreDisjoint, CheckNeverProps, Tuple } from "../Types";
 // Tuple
 //
 
+declare function Given<T>(callback: (x: T) => void): void;
+
 {
   Assert.True<IsType<Tuple, []>>();
   Assert.True<IsType<Tuple<never>, []>>();
@@ -413,7 +415,7 @@ import { AreDisjoint, CheckNeverProps, Tuple } from "../Types";
   Assert.False<IsType<Tuple<number>, [1, 2, "3"]>>();
   Assert.False<IsType<Tuple<string>, [1, 2, "3"]>>();
 
-  // With Length argument
+  // With Length arguments
   Assert.True<IsType<Tuple<number, 2>, [1, 2]>>();
   Assert.True<IsType<Tuple<number, 2>, [number, number]>>();
   Assert.True<IsType<Tuple<number, 3>, [1, 2, 3]>>();
@@ -422,4 +424,10 @@ import { AreDisjoint, CheckNeverProps, Tuple } from "../Types";
   Assert.False<IsType<Tuple<number, 3>, [1, 2, "three"]>>();
   Assert.False<IsType<Tuple<number, 2>, [number, number, number]>>();
   Assert.False<IsType<Tuple<number, 3>, [number, number, "3"]>>();
+
+  // TODO: Clean this test
+
+  Given<Tuple<number>>(tuple =>
+    tuple.map(x => Assert<IsExactType<number, typeof x>>())
+  );
 }
