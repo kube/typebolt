@@ -8,7 +8,8 @@
      ## ## ## :##
       ## ## ##*/
 
-import { Assert, IsExactType } from "../Testing";
+import { Assert } from "../Assert";
+import { IsExactType } from "../Testing";
 import {
   Append,
   Drop,
