@@ -1,6 +1,6 @@
 {
   "name": "typebolt",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "TypeScript static helpers",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,11 +22,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "kube-header": "^1.2.15",
-    "lint-staged": "^10.2.13",
-    "prettier": "^2.1.1",
-    "typescript": "^4.0.2"
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.2"
   },
   "husky": {
     "hooks": {
@@ -39,7 +39,5 @@
       "header format --write"
     ]
   },
-  "dependencies": {
-    "monolite": "^0.9.0"
-  }
+  "dependencies": {}
 }
