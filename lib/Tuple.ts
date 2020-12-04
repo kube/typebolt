@@ -38,7 +38,7 @@ export type Reverse<XS extends any[]> = XS extends [
   infer H,
   ...infer T
 ]
-  ? { 1: [...Reverse<T>, H] }[T extends [] ? 1 : 1]
+  ? [...Reverse<T>, H]
   : XS;
 
 /**
@@ -53,10 +53,11 @@ export type Take<
   N extends number,
   T extends any[],
   O extends any[] = []
-> = {
-  0: O;
-  1: Take<Decrement<N>, Tail<T>, Append<Head<T>, O>>;
-}[N extends 0 ? 0 : T extends [] ? 0 : 1];
+> = N extends 0
+  ? O
+  : T extends []
+  ? O
+  : Take<Decrement<N>, Tail<T>, Append<Head<T>, O>>;
 
 /**
  * Take N last elements of Tuple
@@ -65,25 +66,30 @@ export type TakeLast<
   N extends number,
   T extends any[],
   S extends any[] = []
-> = {
-  0: S;
-  1: T extends [...infer XS, infer L]
-    ? TakeLast<Decrement<N>, XS, [L, ...S]>
-    : T;
-}[N extends 0 ? 0 : T extends [] ? 0 : 1];
+> = N extends 0
+  ? S
+  : T extends []
+  ? S
+  : T extends [...infer XS, infer L]
+  ? TakeLast<Decrement<N>, XS, [L, ...S]>
+  : T;
 
 /**
  * Drop N first elements of Tuple
  */
-export type Drop<N extends number, T extends any[]> = {
-  0: T;
-  1: Drop<Decrement<N>, Tail<T>>;
-}[N extends 0 ? 0 : T extends [] ? 0 : 1];
+export type Drop<N extends number, T extends any[]> = N extends 0
+  ? T
+  : T extends []
+  ? T
+  : Drop<Decrement<N>, Tail<T>>;
 
 /**
  * Drop N last elements of Tuple
  */
-export type DropLast<N extends number, T extends any[]> = {
-  0: T extends [...infer XS, any] ? DropLast<Decrement<N>, XS> : [];
-  1: T;
-}[N extends 0 ? 1 : T extends [] ? 1 : 0];
+export type DropLast<N extends number, T extends any[]> = N extends 0
+  ? T
+  : T extends []
+  ? T
+  : T extends [...infer XS, any]
+  ? DropLast<Decrement<N>, XS>
+  : [];
