@@ -26,7 +26,8 @@ import {
 // Head
 //
 {
-  Assert<IsExactType<never, Head<[]>>>();
+  Assert<IsExactType<undefined, Head<[]>>>();
+  Assert<IsExactType<1 | undefined, Head<[] | [1]>>>();
   Assert<IsExactType<1, Head<[1]>>>();
   Assert<IsExactType<1, Head<[1, 2, 3]>>>();
   Assert<IsExactType<"Hello", Head<["Hello", "World"]>>>();

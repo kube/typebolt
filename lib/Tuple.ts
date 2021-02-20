@@ -16,7 +16,7 @@ import { Decrement } from "./Count";
 export type Head<XS extends any[]> = XS extends [infer X, ...any[]]
   ? X
   : XS extends []
-  ? never
+  ? undefined
   : XS[number] | undefined;
 
 /**
