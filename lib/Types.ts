@@ -70,3 +70,17 @@ export type Tuple<
 type MapTuple<XS, T> = {
   [K in keyof XS]: K extends keyof Array<any> ? XS[K] : T;
 };
+
+/**
+ * Transform a Union Type to Intersection of same operands.
+ *
+ * e.g. `A | B | C` becomes `A & B & C`
+ */
+export type UnionToIntersection<U> =
+  // https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type
+  // TODO: Should add Unit Tests for this one
+  (U extends any ? (k: U) => void : never) extends (
+    k: infer I
+  ) => void
+    ? I
+    : never;
