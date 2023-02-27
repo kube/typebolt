@@ -12,6 +12,8 @@
 yarn add --dev typebolt
 ```
 
+> Minimal TypeScript Version: 4.9
+
 ## Content
 
 - [Logical Operators](#logical-operators)
@@ -57,7 +59,7 @@ Not<And<true, false>> // true – Equivalent to Nand
 Assert a Type is `true` or `false`.
 
 ```ts
-import { Assert } from "typebolt";
+import { value Assert } from "typebolt";
 
 Assert<true>();
 Assert<false>(); // ERROR

@@ -13,8 +13,8 @@ import { Increment, Range } from "./Count";
 type MAXIMUM_DEPTH_CHECK = 9;
 
 export type CheckNeverProps<
-  Intersection extends {},
-  Initial extends {},
+  Intersection,
+  Initial,
   Depth extends number = 0
 > = Depth extends MAXIMUM_DEPTH_CHECK
   ? false
@@ -32,19 +32,15 @@ export type CheckNeverProps<
   ? false
   : true;
 
-type AreDisjointObjects<
-  Intersection extends {},
-  Initial extends {}
-> = keyof Intersection extends never
-  ? false
-  : CheckNeverProps<Intersection, Initial>;
+type AreDisjointObjects<Intersection, Initial> =
+  keyof Intersection extends never
+    ? false
+    : CheckNeverProps<Intersection, Initial>;
 
 /**
  * Check if two type have no possible intersection.
  */
-export type AreDisjoint<A extends {}, B extends {}, AB = A & B> = [
-  AB
-] extends [never]
+export type AreDisjoint<A, B, AB = A & B> = [AB] extends [never]
   ? true
   : AreDisjointObjects<AB, A>;
 
